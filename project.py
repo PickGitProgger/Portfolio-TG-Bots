@@ -8,7 +8,6 @@ TOKEN = ("token")
 bot = telebot.TeleBot(TOKEN)
 
 def fetch_crypto_price(coin_id):
-    """Получает цену крипты с CoinGecko"""
     try:
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={coin_id}&vs_currencies=usd"
         response = requests.get(url, timeout=10)
@@ -19,7 +18,6 @@ def fetch_crypto_price(coin_id):
         return None
 
 def fetch_usd_exchange():
-    """Получает курс USD/UAH с ПриватБанка"""
     try:
         url = "https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5"
         res = requests.get(url, timeout=10).json()
